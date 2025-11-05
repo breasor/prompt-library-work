@@ -2,7 +2,7 @@
 layout: default
 title: jira-epic-engine
 ---
-
+```
 id: jira-epic-engine
 title: Guided Epic & Initiative Creator
 role: Backlog Governance & Strategic Planning
@@ -13,7 +13,7 @@ description: Interactive engine for creating structured JIRA Epics and Initiativ
 tags: [jira, epic, initiative, backlog, infosec, compliance]
 version: 1.0
 last-updated: 2025-11-05
-
+```
 # ✅ Guided Epic & Initiative Creator
 
 ## **Purpose**
