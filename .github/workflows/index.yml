@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
   pages: write
@@ -15,7 +16,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: Add Front Matter to All Markdown Files
+
+      - name: Ensure Front Matter in All Markdown Files
         run: |
           for file in master/*.md engines/*.md helpers/*.md roles/*/*.md templates/*.md; do
             [ -e "$file" ] || continue
@@ -36,47 +38,46 @@ jobs:
           echo "" >> index.md
 
           # Governance
-            echo "## Governance" >> index.md
-            for file in $(ls master/*.md 2>/dev/null | sort); do
+          echo "## Governance" >> index.md
+          for file in $(ls master/*.md 2>/dev/null | sort); do
             name=$(basename "$file" .md)
             echo "- $name" >> index.md
-            done
+          done
 
-            # Engines
-            echo "" >> index.md
-            echo "## Engines" >> index.md
-            for file in $(ls engines/*.md 2>/dev/null | sort); do
+          # Engines
+          echo "" >> index.md
+          echo "## Engines" >> index.md
+          for file in $(ls engines/*.md 2>/dev/null | sort); do
             name=$(basename "$file" .md)
             echo "- $name" >> index.md
-            done
+          done
 
-            # Helpers
-            echo "" >> index.md
-            echo "## Helpers" >> index.md
-            for file in $(ls helpers/*.md 2>/dev/null | sort); do
+          # Helpers
+          echo "" >> index.md
+          echo "## Helpers" >> index.md
+          for file in $(ls helpers/*.md 2>/dev/null | sort); do
             name=$(basename "$file" .md)
             echo "- $name" >> index.md
-            done
-
-            # Roles
-            echo "" >> index.md
-            echo "## Roles" >> index.md
-            for dir in $(ls -d roles/* 2>/dev/null | sort); do
+          done
+          # Roles
+          echo "" >> index.md
+          echo "## Roles" >> index.md
+          for dir in $(ls -d roles/* 2>/dev/null | sort); do
             role=$(basename "$dir")
             echo "### $role" >> index.md
             for file in $(ls "$dir"/*.md 2>/dev/null | sort); do
-                name=$(basename "$file" .md)
-                echo "- $name" >> index.md
+              name=$(basename "$file" .md)
+              echo "- $name" >> index.md
             done
-            done
+          done
 
-            # Templates
-            echo "" >> index.md
-            echo "## Templates" >> index.md
-            for file in $(ls templates/*.md 2>/dev/null | sort); do
+          # Templates
+          echo "" >> index.md
+          echo "## Templates" >> index.md
+          for file in $(ls templates/*.md 2>/dev/null | sort); do
             name=$(basename "$file" .md)
             echo "- $name" >> index.md
-            done
+          done
 
       - name: Commit Changes
         run: |
