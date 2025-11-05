@@ -11,6 +11,10 @@ exclude:
   - .ops
   - Gemfile*
   - package*.json
+titles_from_headings:
+  enabled:     true
+  strip_title: true       # don’t duplicate the H1 in the content
+  collections: true
 
 # Defaults so pages render even if authors forget a layout
 defaults:
