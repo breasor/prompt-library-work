@@ -1,3 +1,4 @@
+---
 id: tone-bias
 title: Tone & Bias Guidelines
 role: Communication Standard
@@ -8,7 +9,7 @@ description: Establishes tone and bias principles for InfoSec prompt generation 
 tags: [infosec, tone, bias, communication, leadership]
 version: 1.0
 last-updated: 2025-11-05
-
+---
 # ✅ **Tone & Bias Guidelines**
 
 ## **Purpose**

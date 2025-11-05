@@ -9,6 +9,7 @@ description: Placeholder for ci-cd-security-template.md
 tags: [devsecops, template]
 version: 1.0
 last-updated: 2025-11-05
+---
 
 # ci-cd-security-template
 ## Purpose

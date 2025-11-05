@@ -1,3 +1,4 @@
+---
 id: role-matrix
 title: Role-to-Deliverable Mapping
 role: Quick Reference
@@ -8,6 +9,7 @@ description: Provides a quick reference table mapping roles to deliverables, ton
 tags: [roles, governance, templates, infosec]
 version: 1.0
 last-updated: 2025-11-05
+---
 
 # ✅ Role-to-Deliverable Matrix
 

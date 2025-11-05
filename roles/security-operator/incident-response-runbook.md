@@ -9,7 +9,7 @@ description: Placeholder for incident-response-runbook.md
 tags: [security-operator, template]
 version: 1.0
 last-updated: 2025-11-05
-
+---
 # incident-response-runbook
 ## Purpose
 Add purpose here.
@@ -17,4 +17,3 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
----

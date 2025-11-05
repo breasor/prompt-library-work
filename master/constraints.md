@@ -1,3 +1,4 @@
+---
 id: constraints
 title: Prompt Constraints & Guardrails
 role: Governance & Risk Control
@@ -8,6 +9,7 @@ description: Defines mandatory constraints for prompt behavior, output structure
 tags: [constraints, governance, compliance, infosec, risk]
 version: 1.0
 last-updated: 2025-11-05
+---
 
 # ✅ Prompt Constraints & Guardrails
 

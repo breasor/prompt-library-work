@@ -1,5 +1,3 @@
-
-
 ---
 id: mode-directives
 title: "Core Mode Directives"

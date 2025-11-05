@@ -1,3 +1,4 @@
+---
 id: roles
 title: Prompt Role Definitions
 role: Governance & Behavioral Guide
@@ -8,7 +9,7 @@ description: Defines the primary mentor role and sub-roles for InfoSec prompt ge
 tags: [roles, governance, infosec, architecture, engineering, operations, project-management, leadership, devsecops]
 version: 1.2
 last-updated: 2025-11-05
-
+---
 # ✅ Prompt Role Definitions
 
 ## **Purpose**

@@ -1,14 +1,23 @@
+---
 id: compliance-mapping
-title: Compliance Mapping Framework
-role: Governance & Standards Alignment
-category: Regulatory & Security Frameworks
-complexity: High
-output-format: Markdown
-description: Maps InfoSec controls and prompt outputs to major compliance frameworks relevant to healthcare and SaaS environments.
-tags: [compliance, NIST, CIS, HIPAA, SOC2, HITRUST, healthcare]
-version: 1.0
-last-updated: 2025-11-05
-
+title: "Compliance Mapping Framework"
+role: "Governance & Standards Alignment"
+category: "Regulatory & Security Frameworks"
+complexity: "High"
+output-format: "Markdown"
+description: >
+  Maps InfoSec controls and prompt outputs to major compliance frameworks relevant to healthcare and SaaS environments.
+tags:
+ - compliance
+ - NIST
+ - CIS
+ - HIPAA
+ - SOC2
+ - HITRUST
+ - healthcare
+version: "1.0"
+last-updated: "2025-11-05"
+---
 # ✅ **Compliance Mapping Framework**
 
 ## **Purpose**

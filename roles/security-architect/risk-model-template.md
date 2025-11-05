@@ -9,6 +9,7 @@ description: Placeholder for risk-model-template.md
 tags: [security-architect, template]
 version: 1.0
 last-updated: 2025-11-05
+---
 
 # risk-model-template
 ## Purpose

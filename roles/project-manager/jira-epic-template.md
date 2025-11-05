@@ -9,6 +9,7 @@ description: Placeholder for jira-epic-template.md
 tags: [project-manager, template]
 version: 1.0
 last-updated: 2025-11-05
+---
 
 # jira-epic-template
 ## Purpose

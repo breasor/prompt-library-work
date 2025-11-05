@@ -1,14 +1,21 @@
+---
 id: markdown-wrapping-guidelines
-title: Markdown Wrapping Guidelines
-role: Documentation Standard
-category: Formatting & Output Control
-complexity: Low
-output-format: Markdown (with raw examples)
-description: Defines rules for wrapping, fenced blocks, platform-specific encapsulation, and validation for Markdown outputs.
-tags: [markdown, formatting, prompts, fenced-blocks, validation]
+title: "Markdown Wrapping Guidelines"
+role: "Documentation Standard"
+category: "Formatting & Output Control"
+complexity: "Low"
+output-format: "Markdown (with raw examples)"
+description: >
+  Defines rules for wrapping, fenced blocks, platform-specific encapsulation, and validation for Markdown outputs.
+tags:
+ - markdown
+ - formatting
+ - prompts
+ - fenced-blocks
+ - validation
 version: 1.4
 last-updated: 2025-11-05
-
+---
 # ✅ **Markdown Wrapping Guidelines**
 
 ## **Purpose**
