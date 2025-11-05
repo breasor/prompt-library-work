@@ -1,3 +1,8 @@
+---
+layout: default
+title: jira-epic-engine
+---
+
 id: jira-epic-engine
 title: Guided Epic & Initiative Creator
 role: Backlog Governance & Strategic Planning
