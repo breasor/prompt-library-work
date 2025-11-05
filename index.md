@@ -1,58 +1,38 @@
 ---
-layout: default
-title: InfoSec Prompt Library Index
+layout: page
+title: Library Index
+permalink: /
 ---
 
-# 📚 InfoSec Prompt Library Index
+# Prompt Library
 
-## Governance
-- constraints
-- mode-directives
-- tone-bias
+Auto-generated from normalized front matter. Fields: **id, title, role, category, complexity, tags, version, last-updated**.
 
-## Engines
-- infosec-doc-engine
-- jira-epic-engine
-- jira-story-engine
-- jira-subtask-engine
+{% assign pages = site.pages
+   | where_exp: "p", "p.path contains '.md'"
+   | where_exp: "p", "p.name != 'index.md'" %}
 
-## Helpers
-- compliance-mapping
-- markdown-wrapping
+{% assign cats = pages | map: "category" | uniq | sort %}
+{% for cat in cats %}
+## {{ cat | default: "Uncategorized" }}
 
-## Roles
-### devsecops
-- ci-cd-security-template
-- container-hardening-template
-### iam-security
-- identity-governance-template
-- mfa-rollout-template
-### manager
-- compliance-status-report
-- executive-summary-template
-### network-security
-- firewall-policy-template
-- segmentation-checklist
-### project-manager
-- jira-epic-template
-- roadmap-template
-- status-report-template
-### security-architect
-- architecture-template
-- risk-model-template
-- role-matrix
-- roles
-### security-engineer
-- automation-script-template
-- hardening-sop-template
-### security-operator
-- alert-tuning-guide
-- incident-response-runbook
-### technical-writer
-- governance-doc-template
-- kba-template
-- sop-template
-
-## Templates
-- confluence-template
-- xml-export-template
+<ul>
+{% assign subset = pages | where: "category", cat | sort_natural: "title" %}
+{% for p in subset %}
+  <li>
+    <a href="{{ p.url | relative p.title | escape }}</a>
+    <small>
+      — <strong>ID:</strong> {{ p.id }} |
+      <strong>Role:</strong> {{ p.role }} |
+      <strong>Complexity:</strong> {{ p.complexity }} |
+      <strong>Version:</strong> {{ p.version }} |
+      <strong>Updated:</strong> {{ p.last-updated }}
+      {% if p.tags and p.tags.size > 0 %} |
+      <strong>Tags:</strong>
+        {% for t in p.tags %}<code>{{ t }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}
+      {% endif %}
+    </small>
+  </li>
+{% endfor %}
+</ul>
+{% endfor %}
