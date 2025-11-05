@@ -6,7 +6,6 @@ permalink: /
 
 # Prompt Library
 
-{%- comment -%} Collect MD pages except this index {%- endcomment -%}
 {% assign pages = site.pages
   | where_exp: "p", "p.path contains '.md'"
   | where_exp: "p", "p.name != 'index.md'" %}
