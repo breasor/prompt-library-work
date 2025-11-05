@@ -1,19 +1,16 @@
 ---
-layout: default
-title: jira-epic-engine
----
-```
 id: jira-epic-engine
-title: Guided Epic & Initiative Creator
-role: Backlog Governance & Strategic Planning
-category: Workflow Automation
-complexity: High
-output-format: Markdown
-description: Interactive engine for creating structured JIRA Epics and Initiatives, linking Stories and Subtasks, and embedding compliance mapping.
-tags: [jira, epic, initiative, backlog, infosec, compliance]
-version: 1.0
+title: "Guided & Conditional JIRA Epic Creator"
+role: "Backlog Management Automation"
+category: "Workflow & Task Governance"
+complexity: "Medium"
+output-format: "Markdown"
+description: "..."
+tags: [jira, backlog, automation]
+version: "2.1"
 last-updated: 2025-11-05
-```
+---
+
 # ✅ Guided Epic & Initiative Creator
 
 ## **Purpose**
