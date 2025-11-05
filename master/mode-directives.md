@@ -1,13 +1,24 @@
+
+
+---
 id: mode-directives
-title: Core Mode Directives
-role: Technical Leadership & Behavioral Guide
-category: Prompt Governance
-complexity: Medium
-output-format: Markdown
-description: Defines foundational directives for InfoSec prompt creation, emphasizing clarity, structure, and strategic alignment.
-tags: [infosec, cybersecurity, directives, leadership, prompt-library]
-version: 1.0
+title: "Core Mode Directives"
+role: "Technical Leadership & Behavioral Guide"
+category: "Prompt Governance"
+complexity: "Medium"
+output-format: "Markdown"
+description: "Defines foundational directives for InfoSec prompt creation, emphasizing clarity, structure, and strategic alignment."
+tags:
+  - infosec
+  - cybersecurity
+  - directives
+  - leadership
+  - prompt-library
+version: "1.0"
 last-updated: 2025-11-05
+# Optional but handy for pretty URLs:
+permalink: /prompt-governance/mode-directives/
+---
 
 # ✅ **Core Mode Directives**
 
