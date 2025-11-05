@@ -3,50 +3,34 @@ layout: page
 title: Library Index
 permalink: /
 ---
-{% for p in site.pages %}
-{% if p.title == nil or p.title == '' %}
-<p>MISSING TITLE → {{ p.path }}</p>
-{% endif %}
-{% endfor %}
 
 # Prompt Library
 
-{%- comment -%}
-Collect all Markdown pages except this index.
-{%- endcomment -%}
+{%- comment -%} Collect all Markdown pages except this index {%- endcomment -%}
 {% assign pages = site.pages
   | where_exp: "p", "p.path contains '.md'"
   | where_exp: "p", "p.name != 'index.md'" %}
 
-{%- comment -%}
-Split pages into those with a category (String/non-empty) vs uncategorized (nil or blank).
-{%- endcomment -%}
+{%- comment -%} Split categorized vs uncategorized (avoid nil in sort) {%- endcomment -%}
 {% assign categorized   = pages | where_exp: "p", "p.category and p.category != ''" %}
 {% assign uncategorized = pages | where_exp: "p", "p.category == nil or p.category == ''" %}
 
-{%- comment -%}
-Build sorted list of distinct categories, removing nils.
-{%- endcomment -%}
-{% assign categories = categorized | map: "category" | uniq | compact | sort %}
+{%- comment -%} Build distinct category list safely {%- endcomment -%}
+{% assign categories = categorized | map: "category" | uniq | sort %}
 
-{%- comment -%}
-Render each category section.
-{%- endcomment -%}
-{% for cat in categories %}
+{%- for cat in categories -%}
 ## {{ cat }}
 
 {%- assign subset = categorized | where: "category", cat -%}
 
-{%- comment -%}
-Split by presence of title so we don't sort on nil.
-{%- endcomment -%}
-{% assign with_title    = subset | where_exp: "p", "p.title" | sort_natural: "title" %}
+{%- comment -%} Split by title presence to avoid sorting nil {%- endcomment -%}
+{% assign with_title    = subset | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" %}
 {% assign without_title = subset | where_exp: "p", "p.title == nil or p.title == ''" | sort_natural: "name" %}
 
 <ul>
   {%- for p in with_title -%}
   <li>
-    <{ p.url | relative_url }}{{ p.title | escape }}</a>
+    {{ p.url | relative_url }}{{ p.title | escape }}</a>
     <small>
       — <strong>ID:</strong> {{ p.id | default: "" }}
       | <strong>Role:</strong> {{ p.role | default: "" }}
@@ -78,21 +62,18 @@ Split by presence of title so we don't sort on nil.
   </li>
   {%- endfor -%}
 </ul>
-{% endfor %}
+{%- endfor -%}
 
-{%- comment -%}
-Finally render the Uncategorized section (if any).
-{%- endcomment -%}
-{% if uncategorized and uncategorized.size > 0 %}
+{%- if uncategorized and uncategorized.size > 0 -%}
 ## Uncategorized
 
-{% assign with_title_u    = uncategorized | where_exp: "p", "p.title" | sort_natural: "title" %}
+{% assign with_title_u    = uncategorized | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" %}
 {% assign without_title_u = uncategorized | where_exp: "p", "p.title == nil or p.title == ''" | sort_natural: "name" %}
 
 <ul>
   {%- for p in with_title_u -%}
   <li>
-    <a href="{{ plative_url }}{{ p.title | escape }}</a>
+    <a href="{{ p.url | relative p.title | escape }}</a>
     <small>
       — <strong>ID:</strong> {{ p.id | default: "" }}
       | <strong>Role:</strong> {{ p.role | default: "" }}
@@ -124,4 +105,4 @@ Finally render the Uncategorized section (if any).
   </li>
   {%- endfor -%}
 </ul>
-{% endif %}
+{%- endif -%}
