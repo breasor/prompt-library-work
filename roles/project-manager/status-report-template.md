@@ -1,3 +1,4 @@
+---
 id: status-report-template
 title: status-report-template
 role: project-manager
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

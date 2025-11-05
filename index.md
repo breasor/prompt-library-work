@@ -1,3 +1,8 @@
+---
+layout: default
+title: InfoSec Prompt Library Index
+---
+
 # 📚 InfoSec Prompt Library Index
 
 ## Governance (master)

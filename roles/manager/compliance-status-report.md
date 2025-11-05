@@ -1,3 +1,4 @@
+---
 id: compliance-status-report
 title: compliance-status-report
 role: manager
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

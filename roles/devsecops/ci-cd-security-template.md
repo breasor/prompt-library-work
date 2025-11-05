@@ -1,3 +1,4 @@
+---
 id: ci-cd-security-template
 title: ci-cd-security-template
 role: devsecops
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

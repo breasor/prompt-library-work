@@ -1,3 +1,4 @@
+---
 id: executive-summary-template
 title: executive-summary-template
 role: manager
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

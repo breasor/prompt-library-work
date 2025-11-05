@@ -1,3 +1,4 @@
+---
 id: jira-epic-template
 title: jira-epic-template
 role: project-manager
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

@@ -1,3 +1,4 @@
+---
 id: container-hardening-template
 title: container-hardening-template
 role: devsecops
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

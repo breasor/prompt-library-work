@@ -1,3 +1,4 @@
+---
 id: risk-model-template
 title: risk-model-template
 role: security-architect
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

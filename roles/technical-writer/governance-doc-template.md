@@ -1,3 +1,4 @@
+---
 id: governance-doc-template
 title: governance-doc-template
 role: technical-writer
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

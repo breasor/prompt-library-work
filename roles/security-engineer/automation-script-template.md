@@ -1,3 +1,4 @@
+---
 id: automation-script-template
 title: automation-script-template
 role: security-engineer
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

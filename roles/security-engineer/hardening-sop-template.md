@@ -1,3 +1,4 @@
+---
 id: hardening-sop-template
 title: hardening-sop-template
 role: security-engineer
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

@@ -1,3 +1,4 @@
+---
 id: alert-tuning-guide
 title: alert-tuning-guide
 role: security-operator
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

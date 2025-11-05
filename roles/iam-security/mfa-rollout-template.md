@@ -1,3 +1,4 @@
+---
 id: mfa-rollout-template
 title: mfa-rollout-template
 role: iam-security
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

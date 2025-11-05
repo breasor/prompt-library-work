@@ -1,3 +1,4 @@
+---
 id: firewall-policy-template
 title: firewall-policy-template
 role: network-security
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

@@ -1,3 +1,4 @@
+---
 id: kba-template
 title: kba-template
 role: technical-writer
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---

@@ -1,3 +1,4 @@
+---
 id: identity-governance-template
 title: identity-governance-template
 role: iam-security
@@ -16,3 +17,4 @@ Add purpose here.
 ## Sections
 - Section 1
 - Section 2
+---
