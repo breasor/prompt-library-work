@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 permissions:
   contents: write
   pages: write
@@ -16,19 +15,17 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-
       - name: Add Front Matter to All Markdown Files
         run: |
           for file in master/*.md engines/*.md helpers/*.md roles/*/*.md templates/*.md; do
             [ -e "$file" ] || continue
             if ! grep -q '^---' "$file"; then
-              # Wrap existing schema with front matter markers
               sed -i '1i ---' "$file"
               echo "---" >> "$file"
             fi
           done
 
-      - name: Generate Index with Front Matter
+      - name: Generate Index with Pretty URLs
         run: |
           echo "---" > index.md
           echo "layout: default" >> index.md
@@ -38,8 +35,8 @@ jobs:
           echo "# 📚 InfoSec Prompt Library Index" >> index.md
           echo "" >> index.md
 
-          # Governance
-          echo "## Governance (master)" >> index.md
+          # Governance (master)
+          echo "## Governance" >> index.md
           for file in $(ls master/*.md 2>/dev/null | sort); do
             name=$(basename "$file" .md)
             echo "- $name" >> index.md
@@ -86,7 +83,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.md master/*.md engines/*.md helpers/*.md roles/*/*.md templates/*.md
-          git diff --cached --quiet || git commit -m "Add front matter and update index"
+          git diff --cached --quiet || git commit -m "Update index with pretty URLs"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
 
       - name: Upload Pages Artifact
