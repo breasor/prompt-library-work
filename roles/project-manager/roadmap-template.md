@@ -5,8 +5,11 @@ role: project-manager
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for roadmap-template.md
-tags: [project-manager, template]
+description: >
+ Placeholder for roadmap-template.md
+tags:
+ - project-manager
+ - template
 version: 1.0
 last-updated: 2025-11-05
 ---
