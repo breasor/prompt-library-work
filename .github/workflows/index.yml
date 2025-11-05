@@ -1,47 +1,90 @@
-- name: Generate Index
-  run: |
-    echo "# 📚 InfoSec Prompt Library Index" > index.md
-    echo "" >> index.md
+name: Generate and Deploy Index
 
-    # Governance
-    echo "## Governance (master)" >> index.md
-    for file in master/*.md; do
-      name=$(basename "$file" .md)
-      echo "- $name" >> index.md
-    done
+on:
+  push:
+    branches:
+      - main
 
-    # Engines
-    echo "" >> index.md
-    echo "## Engines" >> index.md
-    for file in engines/*.md; do
-      name=$(basename "$file" .md)
-      echo "- $name" >> index.md
-    done
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-    # Helpers
-    echo "" >> index.md
-    echo "## Helpers" >> index.md
-    for file in helpers/*.md; do
-      name=$(basename "$file" .md)
-      echo "- $name" >> index.md
-    done
+      - name: Generate Index
+        run: |
+          echo "# 📚 InfoSec Prompt Library Index" > index.md
+          echo "" >> index.md
 
-    # Roles
-    echo "" >> index.md
-    echo "## Roles" >> index.md
-    for dir in roles/*; do
-      role=$(basename "$dir")
-      echo "### $role" >> index.md
-      for file in "$dir"/*.md; do
-        name=$(basename "$file" .md)
-        echo "- [$ame" >> index.md
-      done
-    done
+          # Governance
+          echo "## Governance (master)" >> index.md
+          for file in master/*.md; do
+            [ -e "$file" ] || continue
+            name=$(basename "$file" .md)
+            echo "- $name" >> index.md
+          done
 
-    # Templates
-    echo "" >> index.md
-    echo "## Templates" >> index.md
-    for file in templates/*.md; do
-      name=$(basename "$file" .md)
-      echo "- [$name >> index.md
-    done
+          # Engines
+          echo "" >> index.md
+          echo "## Engines" >> index.md
+          for file in engines/*.md; do
+            [ -e "$file" ] || continue
+            name=$(basename "$file" .md)
+            echo "- $name" >> index.md
+          done
+
+          # Helpers
+          echo "" >> index.md
+          echo "## Helpers" >> index.md
+          for file in helpers/*.md; do
+            [ -e "$file" ] || continue
+            name=$(basename "$file" .md)
+            echo "- $name" >> index.md
+          done
+
+          # Roles
+          echo "" >> index.md
+          echo "## Roles" >> index.md
+          for dir in roles/*; do
+            [ -d "$dir" ] || continue
+            role=$(basename "$dir")
+            echo "### $role" >> index.md
+            for file in "$dir"/*.md; do
+              [ -e "$file" ] || continue
+              name=$(basename "$file" .md)
+              echo "- $name" >> index.md
+            done
+          done
+
+          # Templates
+          echo "" >> index.md
+          echo "## Templates" >> index.md
+          for file in templates/*.md; do
+            [ -e "$file" ] || continue
+            name=$(basename "$file" .md)
+            echo "- $name" >> index.md
+          done
+
+      - name: Commit Index
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add index.md
+          git diff --cached --quiet || git commit -m "Auto-update index"
+          git push
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build-index
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
