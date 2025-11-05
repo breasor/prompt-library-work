@@ -1,0 +1,41 @@
+title: "InfoSec Prompt Library"
+description: "Governance, Engines, Roles, and Templates for InfoSec Automation"
+theme: jekyll-theme-cayman  # You can use 'minimal', 'cayman', or any supported theme
+markdown: kramdown
+baseurl: "" # Leave empty for root
+url: "https://breasor.github.io/prompt-library-work"
+
+# Navigation (optional)
+collections:
+  governance:
+    output: true
+    permalink: /master/:name
+  engines:
+    output: true
+    permalink: /engines/:name
+  roles:
+    output: true
+    permalink: /roles/:name
+  templates:
+    output: true
+    permalink: /templates/:name
+
+# Include folders
+include:
+  - master
+  - engines
+  - roles
+  - templates
+  - helpers
+  - examples
+
+# Exclude unnecessary files
+exclude:
+  - .github
+  - scripts
+  - README.md
+
+# Plugins (optional for navigation/search)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
