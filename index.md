@@ -3,6 +3,11 @@ layout: page
 title: Library Index
 permalink: /
 ---
+{% for p in site.pages %}
+{% if p.title == nil or p.title == '' %}
+<p>MISSING TITLE → {{ p.path }}</p>
+{% endif %}
+{% endfor %}
 
 # Prompt Library
 
