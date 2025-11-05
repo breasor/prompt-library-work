@@ -6,10 +6,16 @@ permalink: /
 
 # Prompt Library
 
+{% comment %}
+Collect all Markdown pages except this index.
+{% endcomment %}
 {% assign pages = site.pages
   | where_exp: "p", "p.path contains '.md'"
   | where_exp: "p", "p.name != 'index.md'" %}
 
+{% comment %}
+Compute categories (blank => Uncategorized)
+{% endcomment %}
 {% assign categories = pages | map: "category" | uniq | sort %}
 
 {% for cat in categories %}
@@ -19,8 +25,8 @@ permalink: /
 {% assign subset = pages | where: "category", cat | sort_natural: "title" %}
 {% for p in subset %}
   <li>
-    <a href="{{ p.urlve_url }}
-      {{ p.title | default: p.name | escape }}
+    {{ p.url | relative_url }}
+      {{ p.title | default: p.name | default: p.path | escape }}
     </a>
     <small>
       — <strong>ID:</strong> {{ p.id | default: "" }}
