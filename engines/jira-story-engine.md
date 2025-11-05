@@ -1,3 +1,4 @@
+---
 id: jira-story-engine
 title: Guided & Conditional JIRA Story Creator with Compliance Mapping
 role: Backlog Management Automation
@@ -8,6 +9,7 @@ description: Interactive engine for creating structured JIRA backlog stories wit
 tags: [jira, backlog, infosec, automation, compliance, SOC2, HIPAA, HITRUST]
 version: 2.1
 last-updated: 2025-11-05
+---
 
 # ✅ Guided & Conditional JIRA Story Creator (with Compliance Mapping)
 

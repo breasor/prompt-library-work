@@ -1,14 +1,24 @@
 ---
-id: jira-epic-engine
+id: jira-epic-template
 title: "Guided & Conditional JIRA Epic Creator"
-role: "Backlog Management Automation"
+role: "Project Management Automation"
 category: "Workflow & Task Governance"
 complexity: "Medium"
 output-format: "Markdown"
-description: "..."
-tags: [jira, backlog, automation]
+description: >
+  Interactive engine for creating structured JIRA backlog stories
+  with clarification, context linking, subtask prompting, and compliance mapping.
+tags:
+  - jira
+  - backlog
+  - infosec
+  - automation
+  - compliance
+  - soc2
+  - hipaa
+  - hitrust
 version: "2.1"
-last-updated: 2025-11-05
+last-updated: "2025-11-05"
 ---
 
 # ✅ Guided Epic & Initiative Creator

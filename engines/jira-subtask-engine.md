@@ -1,14 +1,21 @@
+---
 id: jira-subtask-engine
-title: Guided JIRA Subtask Creator
-role: Backlog Management Automation
-category: Workflow & Task Governance
-complexity: Low
-output-format: Markdown
-description: Interactive engine for creating structured JIRA subtasks under Stories, with compliance mapping and technical clarity.
-tags: [jira, subtask, infosec, automation, compliance]
-version: 1.0
-last-updated: 2025-11-05
-
+title: "Guided JIRA Subtask Creator"
+role: "Backlog Management Automation"
+category: "Workflow & Task Governance"
+complexity: "Low"
+output-format: "Markdown"
+description: >
+  Interactive engine for creating structured JIRA subtasks under Stories, with compliance mapping and technical clarity.
+tags:
+ - jira
+ - subtask
+ - infosec
+ - automation
+ - compliance
+version: "1.0"
+last-updated: "2025-11-05"
+---
 # ✅ Guided JIRA Subtask Creator
 
 ## **Purpose**
