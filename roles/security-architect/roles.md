@@ -10,6 +10,7 @@ tags: [roles, governance, infosec, architecture, engineering, operations, projec
 version: 1.2
 last-updated: 2025-11-05
 ---
+
 # ✅ Prompt Role Definitions
 
 ## **Purpose**

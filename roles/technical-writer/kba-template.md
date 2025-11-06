@@ -11,6 +11,7 @@ tags: [technical-writer, template]
 version: 1.0
 last-updated: 2025-11-05
 ---
+
 # kba-template
 ## Purpose
 Add purpose here.

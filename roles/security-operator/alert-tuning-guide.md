@@ -10,6 +10,7 @@ tags: [security-operator, template]
 version: 1.0
 last-updated: 2025-11-05
 ---
+
 # alert-tuning-guide
 ## Purpose
 Add purpose here.
