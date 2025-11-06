@@ -16,6 +16,16 @@ titles_from_headings:
   strip_title: true       # don’t duplicate the H1 in the content
   collections: true
 
+collections:
+  prompts:
+    output: true
+    permalink: /:collection/:path/
+defaults:
+  - scope: { path: "", type: "prompts" }
+    values:
+      layout: page
+
+
 # Defaults so pages render even if authors forget a layout
 defaults:
   - scope:
