@@ -36,37 +36,3 @@ jobs:
           git commit -m "chore: normalize front matter & manifest [skip ci]"
           git push
 
-  build:
-    needs: lint
-    runs-on: [self-hosted, linux, X64]
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Install Jekyll deps
-        run: |
-          if [ -f Gemfile ]; then bundle install; else gem install jekyll bundler; fi
-      - name: Jekyll build
-        env:
-          JEKYLL_ENV: production
-        run: bundle exec jekyll build -d _site
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-  deploy:
-    needs: build
-    runs-on: [self-hosted, linux, X64]
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
