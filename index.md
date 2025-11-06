@@ -7,56 +7,106 @@ permalink: "/"
 # Prompt Library
 
 {% comment %}
-  First, we create empty lists to hold our pages.
+  Step 1: Create empty lists to hold our pages.
 {% endcomment %}
-{% assign all_pages = "" | split: "" %}
-{% assign with_title = "" | split: "" %}
-{% assign without_title = "" | split: "" %}
+{% assign categorized_pages = "" | split: "" %}
+{% assign uncategorized_pages = "" | split: "" %}
+{% assign categories = "" | split: "" %}
 
 {% comment %}
-  Loop through all site.pages.
-  We will add them to the 'all_pages' list,
-  EXCEPT for 'index.md' itself.
+  Step 2: Loop through all pages.
+  Filter out the index page itself.
+  Sort pages into 'categorized' or 'uncategorized' lists.
 {% endcomment %}
 {% for p in site.pages %}
-  {% if p.name != 'index.md' %}
-    {% assign all_pages = all_pages | push: p %}
-  {% endif %}
+  {% unless p.name == 'index.md' %}
+    {% if p.category and p.category != '' %}
+      {% assign categorized_pages = categorized_pages | push: p %}
+      {% assign categories = categories | push: p.category %}
+    {% else %}
+      {% assign uncategorized_pages = uncategorized_pages | push: p %}
+    {% endif %}
+  {% endunless %}
 {% endfor %}
 
 {% comment %}
-  Now, loop through our 'all_pages' list
-  and sort them into two new lists:
-  one for pages WITH a title, one for pages WITHOUT.
+  Step 3: Get a unique, sorted list of category names.
 {% endcomment %}
-{% for p in all_pages %}
-  {% if p.title and p.title != '' %}
-    {% assign with_title = with_title | push: p %}
-  {% else %}
-    {% assign without_title = without_title | push: p %}
-  {% endif %}
-{% endfor %}
+{% assign categories = categories | uniq | sort %}
+
 
 {% comment %}
-  Finally, sort the lists alphabetically.
+  Step 4: Loop through each category and list its pages.
 {% endcomment %}
-{% assign with_title = with_title | sort_natural: "title" %}
-{% assign without_title = without_title | sort_natural: "name" %}
+{% for cat in categories %}
+  <h2>{{ cat }}</h2>
 
-<ul>
-  {% comment %} List pages that have a title first {% endcomment %}
-  {% for p in with_title %}
-  <li>
-    <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
-    <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
-  </li>
+  {% assign subset_with_title = "" | split: "" %}
+  {% assign subset_without_title = "" | split: "" %}
+
+  {% comment %} Sort pages within this category (subset) {% endcomment %}
+  {% for p in categorized_pages %}
+    {% if p.category == cat %}
+      {% if p.title and p.title != '' %}
+        {% assign subset_with_title = subset_with_title | push: p %}
+      {% else %}
+        {% assign subset_without_title = subset_without_title | push: p %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
 
-  {% comment %} List pages without a title last {% endcomment %}
-  {% for p in without_title %}
-  <li>
-    <a href="{{ p.url | relative_url }}">{{ p.name | default: p.path | escape }}</a>
-    <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
-  </li>
+  {% assign subset_with_title = subset_with_title | sort_natural: 'title' %}
+  {% assign subset_without_title = subset_without_title | sort_natural: 'name' %}
+
+  <ul>
+    {% for p in subset_with_title %}
+    <li>
+      <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
+      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
+    </li>
+    {% endfor %}
+    {% for p in subset_without_title %}
+    <li>
+      <a href="{{ p.url | relative_url }}">{{ p.name | default: p.path | escape }}</a>
+      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+
+{% comment %}
+  Step 5: List all uncategorized pages at the end.
+{% endcomment %}
+{% if uncategorized_pages.size > 0 %}
+  <h2>Uncategorized</h2>
+
+  {% assign uncategorized_with_title = "" | split: "" %}
+  {% assign uncategorized_without_title = "" | split: "" %}
+
+  {% for p in uncategorized_pages %}
+    {% if p.title and p.title != '' %}
+      {% assign uncategorized_with_title = uncategorized_with_title | push: p %}
+    {% else %}
+      {% assign uncategorized_without_title = uncategorized_without_title | push: p %}
+    {% endif %}
   {% endfor %}
-</ul>
+
+  {% assign uncategorized_with_title = uncategorized_with_title | sort_natural: 'title' %}
+  {% assign uncategorized_without_title = uncategorized_without_title | sort_natural: 'name' %}
+
+  <ul>
+    {% for p in uncategorized_with_title %}
+    <li>
+      <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
+      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
+    </li>
+    {% endfor %}
+    {% for p in uncategorized_without_title %}
+    <li>
+      <a href="{{ p.url | relative_url }}">{{ p.name | default: p.path | escape }}</a>
+      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}
