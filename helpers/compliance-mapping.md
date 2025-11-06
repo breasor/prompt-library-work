@@ -1,4 +1,5 @@
 ---
+layout: page
 id: compliance-mapping
 title: "Compliance Mapping Framework"
 role: "Governance & Standards Alignment"
