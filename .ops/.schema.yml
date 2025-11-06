@@ -1,0 +1,28 @@
+required:
+  - id
+  - title
+  - role
+  - category
+  - complexity
+  - output-format
+  - description
+  - tags
+  - version
+  - last-updated
+
+defaults:
+  complexity: "Medium"
+  output-format: "Markdown"
+  tags: []
+  version: "0.1"
+normalize:
+  # title case normalization etc. (left as pass-through below; handled in code)
+  title: "string"
+  role: "string"
+  category: "string"
+  description: "string"
+
+# permissible sets (optional – enforce if you want)
+enums:
+  complexity: ["Low","Medium","High","Very High"]
+

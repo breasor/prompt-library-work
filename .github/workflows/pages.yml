@@ -1,0 +1,74 @@
+name: Lint Front Matter & Deploy Pages
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write      # needed to commit changes on push
+  pages: write
+  id-token: write
+
+jobs:
+  lint:
+    runs-on: [self-hosted, linux, X64]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run front matter linter/fixer
+        run: |
+          python .ops/fm_lint.py | tee fm.out
+          echo "CHANGED=$(grep -c 'changed_any=1' fm.out || true)" >> $GITHUB_ENV
+
+      - name: Commit changes (push only)
+        if: github.event_name == 'push' && env.CHANGED != '0'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "chore: normalize front matter & manifest [skip ci]"
+          git push
+
+  build:
+    needs: lint
+    runs-on: [self-hosted, linux, X64]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Install Jekyll deps
+        run: |
+          if [ -f Gemfile ]; then bundle install; else gem install jekyll bundler; fi
+      - name: Jekyll build
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build -d _site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: [self-hosted, linux, X64]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
