@@ -24,7 +24,7 @@ permalink: "/"
 {%- assign subset = categorized | where: "category", cat -%}
 
 {% comment %} Split the subset for title-based sorting {% endcomment %}
-{%- assign with_title    = subset | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" -%}
+{%- assign with_title = subset | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" -%}
 {%- assign without_title = subset | where_exp: "p", "p.title == nil or p.title == ''" | sort_natural: "name" -%}
 
 <ul>
@@ -47,7 +47,7 @@ permalink: "/"
 ## Uncategorized
 
 {% comment %} Split the uncategorized subset for title-based sorting {% endcomment %}
-{%- assign with_title_u    = uncategorized | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" -%}
+{%- assign with_title_u = uncategorized | where_exp: "p", "p.title and p.title != ''" | sort_natural: "title" -%}
 {%- assign without_title_u = uncategorized | where_exp: "p", "p.title == nil or p.title == ''" | sort_natural: "name" -%}
 
 <ul>
