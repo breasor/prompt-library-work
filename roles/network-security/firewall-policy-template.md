@@ -5,7 +5,8 @@ role: network-security
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for firewall-policy-template.md
+description: >
+ Placeholder for firewall-policy-template.md
 tags: [network-security, template]
 version: 1.0
 last-updated: 2025-11-05

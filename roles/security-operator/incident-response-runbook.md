@@ -5,7 +5,8 @@ role: security-operator
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for incident-response-runbook.md
+description: >
+ Placeholder for incident-response-runbook.md
 tags: [security-operator, template]
 version: 1.0
 last-updated: 2025-11-05

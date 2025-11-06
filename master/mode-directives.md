@@ -5,7 +5,8 @@ role: "Technical Leadership & Behavioral Guide"
 category: "Prompt Governance"
 complexity: "Medium"
 output-format: "Markdown"
-description: "Defines foundational directives for InfoSec prompt creation, emphasizing clarity, structure, and strategic alignment."
+description: >
+  "Defines foundational directives for InfoSec prompt creation, emphasizing clarity, structure, and strategic alignment."
 tags:
   - infosec
   - cybersecurity

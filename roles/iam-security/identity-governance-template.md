@@ -5,7 +5,8 @@ role: iam-security
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for identity-governance-template.md
+description: >
+ Placeholder for identity-governance-template.md
 tags: [iam-security, template]
 version: 1.0
 last-updated: 2025-11-05

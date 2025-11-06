@@ -5,7 +5,8 @@ role: manager
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for executive-summary-template.md
+description: >
+ Placeholder for executive-summary-template.md
 tags: [manager, template]
 version: 1.0
 last-updated: 2025-11-05

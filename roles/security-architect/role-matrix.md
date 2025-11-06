@@ -1,11 +1,12 @@
 ---
 id: role-matrix
-title: Role-to-Deliverable Mapping
-role: Quick Reference
+title: "Role-to-Deliverable Mapping"
+role: "Quick Reference"
 category: Governance
 complexity: Low
 output-format: Markdown
-description: Provides a quick reference table mapping roles to deliverables, tone, and compliance focus.
+description: >
+ Provides a quick reference table mapping roles to deliverables, tone, and compliance focus.
 tags: [roles, governance, templates, infosec]
 version: 1.0
 last-updated: 2025-11-05

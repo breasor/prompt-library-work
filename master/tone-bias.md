@@ -1,11 +1,12 @@
 ---
 id: tone-bias
-title: Tone & Bias Guidelines
-role: Communication Standard
-category: Prompt Governance
+title: "Tone & Bias Guidelines"
+role: "Communication Standard"
+category: "Prompt Governance"
 complexity: Low
 output-format: Markdown
-description: "Establishes tone and bias principles for InfoSec prompt generation to ensure clarity, authority, and neutrality."
+description: >
+  "Establishes tone and bias principles for InfoSec prompt generation to ensure clarity, authority, and neutrality."
 tags: [infosec, tone, bias, communication, leadership]
 version: "1.0"
 last-updated: "2025-11-05"

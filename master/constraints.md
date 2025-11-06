@@ -1,11 +1,12 @@
 ---
 id: constraints
-title: Prompt Constraints & Guardrails
-role: Governance & Risk Control
-category: Compliance & Operational Boundaries
+title: "Prompt Constraints & Guardrails"
+role: "Governance & Risk Control"
+category: "Compliance & Operational Boundaries"
 complexity: Medium
 output-format: Markdown
-description: Defines mandatory constraints for prompt behavior, output structure, and compliance adherence in the InfoSec prompt library.
+description: >
+  Defines mandatory constraints for prompt behavior, output structure, and compliance adherence in the InfoSec prompt library.
 tags: [constraints, governance, compliance, infosec, risk]
 version: 1.0
 last-updated: 2025-11-05

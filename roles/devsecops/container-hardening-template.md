@@ -5,7 +5,8 @@ role: devsecops
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for container-hardening-template.md
+description: >
+ Placeholder for container-hardening-template.md
 tags: [devsecops, template]
 version: 1.0
 last-updated: 2025-11-05

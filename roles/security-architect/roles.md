@@ -1,11 +1,12 @@
 ---
 id: roles
-title: Prompt Role Definitions
-role: Governance & Behavioral Guide
-category: Prompt Execution Rules
+title: "Prompt Role Definitions"
+role: "Governance & Behavioral Guide"
+category: "Prompt Execution Rules"
 complexity: Medium
 output-format: Markdown
-description: Defines the primary mentor role and sub-roles for InfoSec prompt generation, ensuring clarity, authority, and domain-specific expertise.
+description: >
+ Defines the primary mentor role and sub-roles for InfoSec prompt generation, ensuring clarity, authority, and domain-specific expertise.
 tags: [roles, governance, infosec, architecture, engineering, operations, project-management, leadership, devsecops]
 version: 1.2
 last-updated: 2025-11-05

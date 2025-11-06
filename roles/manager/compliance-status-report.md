@@ -5,7 +5,8 @@ role: manager
 category: Template
 complexity: Low
 output-format: Markdown
-description: Placeholder for compliance-status-report.md
+description: >
+ Placeholder for compliance-status-report.md
 tags: [manager, template]
 version: 1.0
 last-updated: 2025-11-05
