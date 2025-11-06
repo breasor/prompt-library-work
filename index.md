@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Library Index
-permalink: /
+permalink: "/"
 ---
 
 # Prompt Library
 
-{% assign pages = site.pages | where_exp: "p", "p.path contains '.md'" | where_exp: "p", "p.name != 'index.md'" %}
+{% assign pages = site.pages | where_exp: "p", "p.name != 'index.md'" %}
 
 {%- assign categorized   = pages | where_exp: "p", "p.category and p.category != ''" -%}
 {%- assign uncategorized = pages | where_exp: "p", "p.category == nil or p.category == ''" -%}
