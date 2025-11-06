@@ -1,8 +1,11 @@
 title: Prompt Library
 theme: minima
 markdown: kramdown
+
+# Correctly indented kramdown settings
 kramdown:
   input: GFM
+
 permalink: /:path/
 exclude:
   - node_modules
@@ -11,23 +14,27 @@ exclude:
   - .ops
   - Gemfile*
   - package*.json
+
+# Correctly indented titles_from_headings settings
 titles_from_headings:
   enabled:     true
-  strip_title: true       # don’t duplicate the H1 in the content
+  strip_title: true # don’t duplicate the H1 in the content
   collections: true
 
 collections:
   prompts:
     output: true
     permalink: /:collection/:path/
+
+# Merged and corrected "defaults" section
 defaults:
-  - scope: { path: "", type: "prompts" }
+  # Default layout for prompts
+  - scope:
+      path: ""
+      type: "prompts"
     values:
       layout: page
-
-
-# Defaults so pages render even if authors forget a layout
-defaults:
+  # Default layout for all other pages
   - scope:
       path: ""
       type: "pages"
