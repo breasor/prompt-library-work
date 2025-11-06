@@ -1,0 +1,27 @@
+--- # This front matter is required for Jekyll to process the file --- // Import the default Minima theme styles
+@import "minima";
+
+//
+// --- Your Custom Footer Styles ---
+//
+
+.footer-page-list {
+    list-style-type: none; // Removes the bullet points
+    padding-left: 0; // Removes the default list indent
+    margin-top: 10px;
+}
+
+.footer-page-list li {
+    display: inline; // Makes the list items horizontal
+}
+
+// This adds the " / " separator after each item
+.footer-page-list li::after {
+    content: " / ";
+    padding: 0 0.25em; // Adds a little space
+}
+
+// This removes the " / " from the very last item
+.footer-page-list li:last-child::after {
+    content: "";
+}
