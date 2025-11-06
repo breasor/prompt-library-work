@@ -15,11 +15,11 @@ permalink: "/"
 
 {% comment %}
   Step 2: Loop through all pages.
-  Filter out the index page itself.
+  Filter out the index, feed, and scss files.
   Sort pages into 'categorized' or 'uncategorized' lists.
 {% endcomment %}
 {% for p in site.pages %}
-  {% unless p.name == 'index.md' %}
+  {% unless p.name == 'index.md' or p.name == 'feed.xml' or p.name == 'main.scss' %}
     {% if p.category and p.category != '' %}
       {% assign categorized_pages = categorized_pages | push: p %}
       {% assign categories = categories | push: p.category %}
@@ -62,13 +62,11 @@ permalink: "/"
     {% for p in subset_with_title %}
     <li>
       <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
-      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
     </li>
     {% endfor %}
     {% for p in subset_without_title %}
     <li>
       <a href="{{ p.url | relative_url }}">{{ p.name | default: p.path | escape }}</a>
-      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
     </li>
     {% endfor %}
   </ul>
@@ -99,13 +97,11 @@ permalink: "/"
     {% for p in uncategorized_with_title %}
     <li>
       <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
-      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
     </li>
     {% endfor %}
     {% for p in uncategorized_without_title %}
     <li>
       <a href="{{ p.url | relative_url }}">{{ p.name | default: p.path | escape }}</a>
-      <small>— ID: {{ p.id | default: "" }} | Role: {{ p.role | default: "" }} | Complexity: {{ p.complexity | default: "" }} | Version: {{ p.version | default: "" }} | Updated: {{ p["last-updated"] | default: "" }}</small>
     </li>
     {% endfor %}
   </ul>
